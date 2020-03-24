@@ -1,42 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        .answer {
+            list-style: none;
+        }
+    </style>
+    <title>Romantic Poets Quiz</title>
+</head>
 <body>
-1. Which were the three poets he said at the start of the video?
-
-1. Byron, Shelly, Coleridge 2. Shelly, Byron, Keats 3. Wordsworth, Blake, Coleridge.
-
-2. Who was exploring North Devon?
-
-1. Byron 2. Coleridge 3. Wordsworth.
-
-3. What did the poet find?
-
-1. A waterfall 2. Criss-crossing streams 3. A church
-
-4. What was he suffering from?
-
-1. Dysentery 2. Diarrhoea 3. Vomiting.
-
-5. Who was the 2nd poet the video talked about?
-
-1. Shelley 2. Byron 3. Keats.
-
-6. What did the poet become?
-
-1. A doctor 2. A scientist 3. A trainee surgeon.
-
-7. What was the poet's last operation?
-
-1. Treating a broken bone 2. Opening a temporal artery 3. Removing a kidney.
-
-8. What did the poet choose?
-
-1. Art over science 2. English over science 3. Science over art.
-
-9. What poet thought you had to see God to believe him?
-
-1. Shelly 2. Blake 3. Byron.
-
-10. Who was the last poet the video talked about?
-
-1. Wordsworth 2. Byron 3. Blake.
-
+<div class="container">
+    <h1>Daniel Cook's Romantic Poets Quiz</h1>
+    <ol>
+        <li class="question">
+            Which were the three poets he said at the start of the video?
+            <ul>
+                <li class="answer incorrect">Byron, Shelly, Coleridge</li>
+                <li class="answer incorrect">Shelly, Byron, Keats</li>
+                <li class="answer incorrect">Wordsworth, Blake, Coleridge</li>
+            </ul>
+        </li>
+        <li class="question">
+            Who was exploring North Devon?
+            <ul>
+                <li class="answer incorrect">Byron</li>
+                <li class="answer incorrect">Coleridge</li>
+                <li class="answer incorrect">Wordsworth</li>
+            </ul>
+        </li>
+        <li class="question">
+            What did the poet find?
+            <ul>
+                <li class="answer incorrect">A waterfall</li>
+                <li class="answer incorrect">Criss-crossing streams</li>
+                <li class="answer incorrect">A church</li>
+            </ul>
+        </li>
+        <li class="question">
+            What was he suffering from?
+            <ul>
+                <li class="answer incorrect">Dysentery</li>
+                <li class="answer incorrect">Diarrhoea</li>
+                <li class="answer incorrect">Vomiting</li>
+            </ul>
+        </li>
+        <li class="question">
+            Who was the 2nd poet the video talked about?
+            <ul>
+                <li class="answer incorrect">Shelley</li>
+                <li class="answer incorrect">Byron</li>
+                <li class="answer incorrect">Keats</li>
+            </ul>
+        </li>
+        <li class="question">
+            What did the poet become?
+            <ul>
+                <li class="answer incorrect">A doctor</li>
+                <li class="answer incorrect">A scientist</li>
+                <li class="answer incorrect">A trainee surgeon</li>
+            </ul>
+        </li>
+        <li class="question">
+            What was the poet's last operation?
+            <ul>
+                <li class="answer incorrect">Treating a broken bone</li>
+                <li class="answer incorrect">Opening a temporal artery</li>
+                <li class="answer incorrect">Removing a kidney</li>
+            </ul>
+        </li>
+        <li class="question">
+            What did the poet choose?
+            <ul>
+                <li class="answer incorrect">Art over science</li>
+                <li class="answer incorrect">English over scienc</li>
+                <li class="answer incorrect">Science over art</li>
+            </ul>
+        </li>
+        <li class="question">
+            What poet thought you had to see God to believe him?
+            <ul>
+                <li class="answer incorrect">Shelly</li>
+                <li class="answer incorrect">Blake</li>
+                <li class="answer incorrect">Byron</li>
+            </ul>
+        </li>
+        <li class="question">
+            Who was the last poet the video talked about?
+            <ul>
+                <li class="answer incorrect">Wordsworth</li>
+                <li class="answer incorrect">Byron</li>
+                <li class="answer incorrect">Blake</li>
+            </ul>
+        </li>
+    </ol>
+    <p class="results"></p>
+    <button class="btn btn-primary finish">Check Answers</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script>
+    (function ($) {
+        $(".question").wrap("<form></form>");
+        $(".answer").prepend("<input class='form-check-input' type='radio' name='answer''>");
+        $(".finish").click(function () {
+            $(".answer input").prop("disabled", true);
+            $(".answer.incorrect input:checked").parent().css("color", "red");
+            $(".answer.correct input:checked").parent().css("color", "green");
+            $(".results").text("You got " + $(".answer.correct input:checked").length + " out of " + $(".question").length + " correct.");
+            $(".finish").hide();
+        });
+    })(jQuery);
+</script>
 </body>
+</html>
